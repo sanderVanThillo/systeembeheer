@@ -12,7 +12,8 @@
 
 Include /etc/ssh/sshd_config.d/*.conf
 
-#Port 22
+
+#Port 22345
 #AddressFamily any
 #ListenAddress 0.0.0.0
 #ListenAddress ::
@@ -103,7 +104,8 @@ PrintMotd no
 #PidFile /var/run/sshd.pid
 #MaxStartups 10:30:100
 #PermitTunnel no
-#ChrootDirectory none
+
+ChrootDirectory none
 #VersionAddendum none
 
 # no default banner path
