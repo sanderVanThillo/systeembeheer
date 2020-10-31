@@ -6,3 +6,11 @@
 // organization
 //include "/etc/bind/zones.rfc1918";
 
+include "/etc/bind/db.sander-vanthillo.sb.uclllabs.be";
+
+zone "sander-vanthillo.sb.uclllabs.be" {
+  type master;
+  file "/etc/bind/zones/db.sander-vanthillo.sb.uclllabs.be";
+  notify yes;
+};
+
