@@ -1,0 +1,3 @@
+#! /bin/bash
+/etc/scripts/static-arp.sh
+exit 0
