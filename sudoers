@@ -19,7 +19,7 @@ Cmnd_Alias CHECK_APT_CMD = /usr/lib/nagios/plugins/check_apt
 Cmnd_Alias ARP_CMD = /usr/sbin/arp
 # User privilege specification
 root	ALL=(ALL:ALL) ALL
-check   ALL=(ALL) NOPASSWD: CHECK_APT_CMD, ARP_CMD
+check   ALL=(ALL) NOPASSWD: CHECK_APT_CMD, ARP_CMD, /etc/scripts/dns_add_record, /etc/scripts/dns_add_zone
 # Members of the admin group may gain root privileges
 %admin ALL=(ALL) ALL
 
