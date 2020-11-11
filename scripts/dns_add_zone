@@ -1,0 +1,2 @@
+cat /etc/bind/temp > /etc/bind/named.conf.local
+echo zone \"$dbname
