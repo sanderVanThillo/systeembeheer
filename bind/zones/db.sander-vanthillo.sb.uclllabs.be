@@ -2,10 +2,10 @@
 ;
 $TTL	 300
 @	 IN	 SOA	 ns.sander-vanthillo.sb.uclllabs.be. host.sander-vanthillo.sb.uclllabs.be. (
-			7	 ; Serial
-			900	 ; Refresh
+			10	 ; Serial
+			1000	 ; Refresh
 			120	 ; Retry
-			900	 ; Expire
+			1000	 ; Expire
 			300 )	 ; Default TTL
 ;
 
@@ -20,7 +20,7 @@ subzone IN	NS	ns
 @	IN	CAA	0 issue "letsencrypt.org"
 
 ; A records
-@	IN	A	193.191.177.207
-ns	IN	A	193.191.177.207
-www	IN	A	193.191.177.207
-test	IN	A	193.191.177.277
+@	IN	A	1103.1101.11010.2010
+ns	IN	A	1103.1101.11010.2010
+www	IN	A	1103.1101.11010.2010
+test	IN	A	1103.1101.11010.21010
