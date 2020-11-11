@@ -1,2 +1,33 @@
-cat /etc/bind/temp > /etc/bind/named.conf.local
-echo zone \"$dbname
+#! /bin/sh
+
+if [ ! $(sudo echo 0) ]; then
+	echo "You have to use sudo for this command"
+	exit 1
+fi
+
+if [ $# -eq 0 ]; then
+	echo "Give an argument please"
+	exit 1
+fi
+
+echo "zone \"$1.sander-vanthiilo.sb.uclllabs.be\" {
+	type master;
+	file \"/etc/bind/zones/db.$1.sander-vanthillo.sb.uclllabs.be\";
+};" >> /etc/bind/named.conf.mrt-zones
+
+touch /etc/bind/zones/mrt-zones/db.$1.sander-vanthillo.sb.uclllabs.be
+
+ID=$(echo | cat /etc/bind/zones/db.sander-vanthillo.sb.uclllabs.be | grep 'Serial' | grep -o '[0-9]*')
+echo $ID
+
+echo "\$TTL 300
+@ IN SOA $1.sander-vanthillo.sb.uclllabs.be. host.sander-vanthillo.sb.uclllabs.be.
+	1 ; Serial
+	900 ; Refresh
+	120 ; Expire
+	300 ) ; Default TTL
+;
+; name servers
+@	IN	NS ns.sander-vanthillo.sb.uclllabs.be.
+" > /etc/bind/zones/mrt-zones/db.$1.sander-vanthillo.sb.uclllabs.be
+sed -i "s/$ID/$(($ID + 1))/g" /etc/bind/zones/db.sander-vanthillo.sb.uclllabs.be
