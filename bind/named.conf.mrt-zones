@@ -2,15 +2,11 @@ zone "a.sander-vanthiilo.sb.uclllabs.be" {
 	type master;
 	file "/etc/bind/zones/db.a.sander-vanthillo.sb.uclllabs.be";
 };
-zone "a.sander-vanthiilo.sb.uclllabs.be" {
-	type master;
-	file "/etc/bind/zones/db.a.sander-vanthillo.sb.uclllabs.be";
-};
-zone "a.sander-vanthiilo.sb.uclllabs.be" {
-	type master;
-	file "/etc/bind/zones/db.a.sander-vanthillo.sb.uclllabs.be";
-};
 zone "b.sander-vanthiilo.sb.uclllabs.be" {
 	type master;
 	file "/etc/bind/zones/db.b.sander-vanthillo.sb.uclllabs.be";
+};
+zone "c.sander-vanthiilo.sb.uclllabs.be" {
+	type master;
+	file "/etc/bind/zones/db.c.sander-vanthillo.sb.uclllabs.be";
 };
