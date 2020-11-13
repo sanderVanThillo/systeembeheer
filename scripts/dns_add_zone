@@ -13,7 +13,7 @@ fi
 #zone description in config
 echo "zone \"$1.sander-vanthillo.sb.uclllabs.be\" {
 	type master;
-	file \"/etc/bind/zones/db.$1.sander-vanthillo.sb.uclllabs.be\";
+	file \"/etc/bind/zones/mrt-zones/db.$1.sander-vanthillo.sb.uclllabs.be\";
 };" >> /etc/bind/named.conf.mrt-zones
 
 #create a new zone file
@@ -21,15 +21,14 @@ touch /etc/bind/zones/mrt-zones/db.$1.sander-vanthillo.sb.uclllabs.be
 
 #add settings to the new zone file
 echo "\$TTL 300
-@ IN SOA ns.$1.sander-vanthillo.sb.uclllabs.be. host.sander-vanthillo.sb.uclllabs.be.
+@ IN SOA ns.$1.sander-vanthillo.sb.uclllabs.be. host.sander-vanthillo.sb.uclllabs.be. (
 	1 ; Serial
 	900 ; Refresh
 	120 ; Retry
 	900 ; Expire
 	300 ) ; Default TTL
-;
-; name servers
-@	IN	NS ns.sander-vanthillo.sb.uclllabs.be." > /etc/bind/zones/mrt-zones/db.$1.sander-vanthillo.sb.uclllabs.be
+
+@	IN	NS	ns.sander-vanthillo.sb.uclllabs.be." > /etc/bind/zones/mrt-zones/db.$1.sander-vanthillo.sb.uclllabs.be
 
 #add records of the new subzone to the main zone
 echo "$1	IN	NS	ns.sander-vanthillo.sb.uclllabs.be." >> /etc/bind/zones/db.sander-vanthillo.sb.uclllabs.be
