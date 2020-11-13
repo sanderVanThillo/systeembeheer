@@ -1,0 +1,27 @@
+SUBDOMAIN="`echo $1 | awk -F . '{print $1}'`"
+DOMAIN="`echo $1 | awk -F . '{print $2}'`"
+
+GREP=$(grep "$SUBDOMAIN[[:space:]]*IN[[:space:]]*A" /etc/bind/zones/db.$DOMAIN)
+if [ -z "$GREP" ];
+then
+echo "subdomain doesnt exist"
+else
+	mkdir /var/www/html/www.$SUBDOMAIN
+	touch /var/www/html/www.$SUBDOMAIN/index.html
+	echo 'welcome '$SUBDOMAIN.DOMAIN > /var/www/html/www.$SUBDOMAIN/index.html
+
+	touch /etc/apache2/sites-available/www.$SUBDOMAIN.conf
+	echo "<VirtualHost *:80>
+	# This first listed virtual host is also the default for *:80
+		ServerName $1
+		DocumentRoot /var/www/html/www.$SUBDOMAIN
+
+		LogLevel info
+		ErrorLog "${APACHE_LOG_DIR}"/www.$SUBDOMAIN-error.log
+		CustomLog "${APACHE_LOG_DR}"/www.$SUBDOMAIN-access.log combined
+	</VirtualHost>" > /etc/apache2/sites-available/www.$SUBDOMAIN.conf
+
+	a2ensite www.$SUBDOMAIN.conf
+
+	systemctl reload apache2
+fi
