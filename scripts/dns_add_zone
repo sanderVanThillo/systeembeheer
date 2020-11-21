@@ -34,9 +34,7 @@ echo "\$TTL 300
 echo "$1	IN	NS	ns.sander-vanthillo.sb.uclllabs.be." >> /etc/bind/zones/db.sander-vanthillo.sb.uclllabs.be
 echo "$1	IN	A	193.191.177.205" >> /etc/bind/zones/db.sander-vanthillo.sb.uclllabs.be
 
-ID=$(echo | cat /etc/bind/zones/db.sander-vanthillo.sb.uclllabs.be | grep 'Serial' | grep -o '[0-9]*')
-echo $ID
-sed -i "s/$ID/$(($ID + 1))/g" /etc/bind/zones/db.sander-vanthillo.sb.uclllabs.be
+perl -i -pe '/Serial/ && s/(\d+)/$1+1 . $2/e' /etc/bind/zones/db.sander-vanthillo.sb.uclllabs.be
 
 #reload
 rndc reload
