@@ -2,7 +2,7 @@
 ;
 $TTL	 300
 @	 IN	 SOA	 ns.sander-vanthillo.sb.uclllabs.be. host.sander-vanthillo.sb.uclllabs.be. (
-			45	 ; Serial
+			46	 ; Serial
 			900	 ; Refresh
 			120	 ; Retry
 			900	 ; Expire
@@ -14,6 +14,8 @@ $TTL	 300
 @	IN	NS	ns1.uclllabs.be.
 @	IN	NS	ns2.uclllabs.be.
 
+@	IN	MX 10	mx.sander-vanthillo.sb.uclllabs.be.
+
 subzone IN	NS	ns
 
 @	IN	CAA	0 iodef "mailto:sander.vanthillo@student.ucll.be"
@@ -23,6 +25,7 @@ subzone IN	NS	ns
 @	IN	A	193.191.177.205
 ns	IN	A	193.191.177.205
 www	IN	A	193.191.177.205
+mx	IN	A	193.191.177.205
 
 secure          IN      A       193.191.177.205
 secure          IN      CAA 0 issue "letsencrypt.org"
