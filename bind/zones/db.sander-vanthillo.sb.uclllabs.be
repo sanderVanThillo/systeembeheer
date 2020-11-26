@@ -2,7 +2,7 @@
 ;
 $TTL	 300
 @	 IN	 SOA	 ns.sander-vanthillo.sb.uclllabs.be. host.sander-vanthillo.sb.uclllabs.be. (
-			47	 ; Serial
+			48	 ; Serial
 			900	 ; Refresh
 			120	 ; Retry
 			900	 ; Expire
@@ -29,6 +29,7 @@ ns	IN	A	2001:6a8:2880:a077::cd
 
 www	IN	A	193.191.177.205
 mx	IN	A	193.191.177.205
+mx	IN	A	2001:6a8:2880:a077::cd
 
 secure          IN      A       193.191.177.205
 secure          IN      CAA 0 issue "letsencrypt.org"
