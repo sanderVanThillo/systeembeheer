@@ -2,7 +2,7 @@
 ;
 $TTL	 300
 @	 IN	 SOA	 ns.sander-vanthillo.sb.uclllabs.be. host.sander-vanthillo.sb.uclllabs.be. (
-			46	 ; Serial
+			47	 ; Serial
 			900	 ; Refresh
 			120	 ; Retry
 			900	 ; Expire
@@ -24,6 +24,9 @@ subzone IN	NS	ns
 ; A records
 @	IN	A	193.191.177.205
 ns	IN	A	193.191.177.205
+@	IN	A	2001:6a8:2880:a077::cd
+ns	IN	A	2001:6a8:2880:a077::cd
+
 www	IN	A	193.191.177.205
 mx	IN	A	193.191.177.205
 
