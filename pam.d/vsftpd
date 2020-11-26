@@ -1,5 +1,5 @@
-auth required pam_userdb.so db=/etc/virtusers
-account required pam_userdb.so db=/etc/virtusers
+auth required pam_userdb.so db=/etc/vsftpd/virtusers
+account required pam_userdb.so db=/etc/vsftpd/virtusers
 # Standard behaviour for ftpd(8).
 auth	required	pam_listfile.so item=user sense=deny file=/etc/ftpusers onerr=succeed
 
