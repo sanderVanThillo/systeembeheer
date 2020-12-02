@@ -5,12 +5,12 @@
 -N sshguard
 -A INPUT -j sshguard
 -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
--A INPUT -s 193.191.177.6/25 -j ACCEPT
--A INPUT -s 193.191.177.1/25 -j ACCEPT
+-A INPUT -s 193.191.177.6/32 -j ACCEPT
+-A INPUT -s 193.191.177.1/32 -j ACCEPT
 -A INPUT -s 10.0.0.0/8 -j ACCEPT
 -A INPUT -s 192.168.255.0/24 -j ACCEPT
 -A INPUT -s 172.16.0.0/16 -j ACCEPT
--A INPUT -s 193.191.177.177/25 -j ACCEPT
+-A INPUT -s 193.191.177.205/32 -j ACCEPT
 -A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
 -A INPUT -p tcp -m tcp --dport 443 -j ACCEPT
 -A INPUT -p tcp -m tcp --dport 587 -j ACCEPT
