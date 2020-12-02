@@ -10,6 +10,7 @@
 -A INPUT -s 2001:6a8:2880:a077::cd/128 -j ACCEPT
 -A INPUT -s ::1 -j ACCEPT
 -A INPUT -p ipv6-icmp -j ACCEPT
+-A INPUT -p tcp -m tcp --dport 25 -j ACCEPT
 -A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
 -A INPUT -p tcp -m tcp --dport 443 -j ACCEPT
 -A INPUT -p tcp -m tcp --dport 587 -j ACCEPT
