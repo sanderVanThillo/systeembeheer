@@ -1,3 +1,4 @@
 #! /bin/bash
 /etc/scripts/static-arp.sh
+systemctl restart firewall
 exit 0
