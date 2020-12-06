@@ -1,0 +1,8 @@
+<VirtualHost *:80>
+	ServerName {{ PREFIX }}.{{ SUBDOMAIN }}.sander-vanthillo.sb.uclllabs.be
+        DocumentRoot /var/www/html/{{ PREFIX }}.{{ SUBDOMAIN }}
+
+	LogLevel info
+	ErrorLog ${APACHE_LOG_DIR}/{{ PREFIX }}.{{ SUBDOMAIN }}-error.log
+	CustomLog ${APACHE_LOG_DIR}/{{ PREFIX }}.{{ SUBDOMAIN }}-access.log combined
+</VirtualHost>

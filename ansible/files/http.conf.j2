@@ -1,0 +1,28 @@
+# Virtual hosts created by ansible
+<VirtualHost *:80>
+        ServerAdmin webmaster@localhost
+        ServerAlias www.sander-vanthillo.sb.uclllabs.be
+        DocumentRoot /var/www/html/www
+
+        LogLevel info
+        ErrorLog ${APACHE_LOG_DIR}/www-error.log
+        CustomLog ${APACHE_LOG_DIR}/www-access.log combined
+</VirtualHost>
+<VirtualHost *:80>
+        ServerAdmin webmaster@localhost
+        ServerName  www1.sander-vanthillo.sb.uclllabs.be
+        DocumentRoot /var/www/html/www1
+
+        LogLevel info
+        ErrorLog ${APACHE_LOG_DIR}/www1-error.log
+        CustomLog ${APACHE_LOG_DIR}/www1-access.log combined
+</VirtualHost>
+<VirtualHost *:80>
+        ServerAdmin webmaster@localhost
+        ServerName www2.sander-vanthillo.sb.uclllabs.be
+        DocumentRoot /var/www/html/www2
+
+        LogLevel info
+        ErrorLog ${APACHE_LOG_DIR}/www2-error.log
+        CustomLog ${APACHE_LOG_DIR}/www2-access.log combined
+</VirtualHost>
