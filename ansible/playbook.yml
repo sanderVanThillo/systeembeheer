@@ -1,0 +1,60 @@
+---
+  - name: "Installing apache2 en making virtual hosts"
+    hosts: localhost
+    connection: local
+    tasks:
+
+    - name: "install apache"
+      shell: "add-apt-repository ppa:ondrej/apache2 -y ; apt update -y ; apt install apache2 -y"
+      register: "output"
+
+    - debug: var=output.stdout_lines
+
+    - name: Create document root
+      file:
+        path: "/var/www/html"
+        state: directory
+        owner: "root"
+        mode: '0755'
+
+    - name: Create index page
+      template:
+        src: "files/index.html.j2"
+        dest: "/var/www/html/index.html"
+
+    - name: Set up http virtualhosts
+      template:
+        src: "files/http.conf.j2"
+        dest: "/etc/apache2/sites-available/http.conf"
+
+    - name: Enable new virtualhosts
+      shell: /usr/sbin/a2ensite http_conf
+      notify: Reload Apache
+
+
+    - name: Set up https virtualhosts
+      template:
+        src: "files/https.conf.j2"
+        dest: "/etc/apache2/sites-available/https.conf"
+
+    - name: Enable new site
+      shell: /usr/sbin/a2ensite https_conf
+      notify: Reload Apache
+
+
+    - name: Disable default Apache site
+      shell: /usr/sbin/a2dissite 000-default.conf
+      when: true
+      notify: Reload Apache
+
+
+    handlers:
+    - name: Reload Apache
+      service:
+        name: apache2
+        state: reloaded
+
+    - name: Restart Apache
+      service:
+        name: apache2
+        state: restarted
